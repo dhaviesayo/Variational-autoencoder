@@ -42,7 +42,6 @@ class vae(nn.Module):
     def reparameterize(self, mu: Tensor, logvar: Tensor) -> torch.Tensor:
         std =  torch.exp(0.5 * logvar)
         eps = torch.randn_like(std) 
-        eps =  torch.clamp(eps , 0 , 1)
         return eps * std + mu
 
 
