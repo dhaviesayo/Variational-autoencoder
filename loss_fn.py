@@ -3,7 +3,7 @@ from torch import nn , Tensor
 from torch.nn import functional as F
 
 
-def loss_function(self,params: list , kld_weight) -> dict :
+def loss_function(params: list , kld_weight) -> dict :
         '''
         params : list of output from the forward pass [reconstructed image ,  input , mu , log_var]
         kld_weight # Account for the minibatch samples from the dataset
