@@ -11,5 +11,5 @@ def generate_new(self, img : Tensor ,  num_samples:int) -> list[Tensor] :
         sample_params = [vae.reparameterize(mu , log_var) for i in range (num_samples)]
         decoded = [vae.decode(params) for params in sample_params]
         decoded_interp = [F.interpolate(decoded[i] , [img.shape[-2] , 
-        img.shape[-1]] , mode = "bilinear" ,  align_corners =  True ) for i in range(decoded)]
+        img.shape[-1]] , mode = "bilinear" ,  align_corners =  True ) for i in range(len(decoded))]
         return  decoded_interp
